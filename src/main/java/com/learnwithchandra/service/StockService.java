@@ -1,6 +1,5 @@
 package com.learnwithchandra.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -29,9 +28,24 @@ public Stock addStock(Stock stock) {
 	
 }
 
-public List<Stock> getAllPortfolioStocks(){
+public List<Stock> getAllStocks(){
 	
 	return  stockRepository.findAll();
+	
+}
+
+
+
+public void deletefromHoldings(String stockID) {
+	
+	stockRepository.deleteById(Long.valueOf(stockID ));
+}
+	
+
+
+public Boolean stockExistsById(String stockId) {
+	
+	return stockRepository.existsById(Long.valueOf(stockId ));
 	
 }
 

@@ -19,7 +19,7 @@ public class StockDTO {
 		super();
 	}
 
-
+ 
 	public StockDTO(Integer id, String name, Double pricePurchased, Integer quantityPurchased, String purchaseDate,
 			Double amountInvested, Double currentValueOfInvestment, String purchaseStrategy) {
 		super();
