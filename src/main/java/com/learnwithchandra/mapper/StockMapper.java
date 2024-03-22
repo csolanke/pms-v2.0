@@ -15,7 +15,6 @@ public Stock dtoTOEntity(StockDTO dto) {
 	if(dto!=null) {
 		Stock stock = new Stock();
 		      
-		stock.setID(dto.getId());
 		stock.setAmountInvested(dto.getAmountInvested());
 		stock.setCurrentValueOfInvestment(dto.getCurrentValueOfInvestment());
 		stock.setName(dto.getName());
@@ -32,6 +31,27 @@ public Stock dtoTOEntity(StockDTO dto) {
 	
 }
 	
+public StockDTO entityTODto(Stock stock) {
 	
+	if(null!=stock) {
+		
+		StockDTO dto = new StockDTO();
+		
+		dto.setId(stock.getID());
+		dto.setName(stock.getName());
+		dto.setAmountInvested(stock.getAmountInvested());
+		dto.setCurrentValueOfInvestment(stock.getCurrentValueOfInvestment());
+		dto.setPricePurchased(stock.getPricePurchased());
+		dto.setQuantityPurchased(stock.getQuantityPurchased());
+		dto.setPurchaseDate(stock.getPurchaseDate());
+		dto.setPurchaseStrategy(stock.getPurchaseStrategy());
+		
+		return dto;
+		
+	}
+	
+	return null;
+	
+}
 
 }

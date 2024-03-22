@@ -1,6 +1,5 @@
 package com.learnwithchandra.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,7 @@ import com.learnwithchandra.exceptions.StocksNotFoundException;
 import com.learnwithchandra.mapper.StockMapper;
 import com.learnwithchandra.service.StockService;
 
-@RestController
+@RestController   
 @RequestMapping("/pms/v1")
 public class PMSController {
 
@@ -54,7 +53,8 @@ public class PMSController {
 		Stock stock = stockMapper.dtoTOEntity(stockDto);
 		try {
 			stockservice.addStock(stock);
-			return new ResponseEntity<>(stockDto, HttpStatus.CREATED);
+			StockDTO dto= stockMapper.entityTODto(stock);
+			return new ResponseEntity<>(dto, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
